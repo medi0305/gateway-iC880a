@@ -22,42 +22,44 @@ This installer targets the SPI version of the board. IMST iC880a + Raspberry Pi.
 - Reboot
 - Now if you want you can ssh into the RPi using the default hostname
 ```
-		local $ ssh pi@<youripaddress>
+	local $ ssh pi@<youripaddress>
 ```
 - Configure locales and time zone:
 ```
-		$ sudo dpkg-reconfigure locales
-		$ sudo dpkg-reconfigure tzdata
+	$ sudo dpkg-reconfigure locales
+	$ sudo dpkg-reconfigure tzdata
 ```
 - Make sure you have an updated installation and install git
 ```
-		$ sudo apt-get update
-		$ sudo apt-get upgrade
-		$ sudo apt-get install git
+	$ sudo apt-get update
+	$ sudo apt-get upgrade
+	$ sudo apt-get install git
 ```
 - Create new user for ResIOT and add it to sudoers
 ```
-		$ sudo adduser resiot
-		$ sudo adduser resiot sudo
+	$ sudo adduser resiot
+	$ sudo adduser resiot sudo
 ```
 - Logout and login as resiot and remove the default pi user
 ```
-		$ sudo userdel -rf pi
+	$ sudo userdel -rf pi
 ```
 - Now You can setup a wifi connection if you wish to:
 ```
-		$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+	$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 And add the following block at the end of the file, replacing SSID and password to match your network:
 ```
-		network={
-			ssid="The_SSID_of_your_wifi"
-			psk="Your_wifi_password"
-		}
+	network={
+		ssid="The_SSID_of_your_wifi"
+		psk="Your_wifi_password"
+	}
 ```
 - Clone the installer and start the installation
 ```
-		$ git clone https://github.com/resiot/gateway-iC880a.git ~/resiot
-		$ cd ~/resiot/<yourserver>
-		$ sudo ./install.sh
+	$ git clone https://github.com/resiot/gateway-iC880a.git ~/resiot
+	$ cd ~/resiot/<yourserver>
+	$ sudo chmod 775 ./install.sh
+	$ sudo chmod 775 ./start.sh
+	$ sudo ./install.sh
 ```
