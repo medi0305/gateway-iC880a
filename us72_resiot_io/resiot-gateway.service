@@ -1,0 +1,12 @@
+[Unit]
+Description=Resiot Gateway
+
+[Service]
+WorkingDirectory=/opt/resiot-gateway/bin/
+ExecStart=/opt/resiot-gateway/bin/start.sh
+SyslogIdentifier=resiot-gateway
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
