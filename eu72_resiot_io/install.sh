@@ -83,7 +83,7 @@ fi
 
 # Build LoRa gateway app
 if [ ! -d lora_gateway ]; then
-    git clone https://github.com/resiot/lora_gateway
+    git clone https://github.com/resiot/eu72_resiot_io
     pushd lora_gateway
 else
     pushd lora_gateway
